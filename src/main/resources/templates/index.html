@@ -28,8 +28,8 @@
 			<td th:text="${s.subscribe}"></td>
 			<td th:text="${s.country}"></td>
 			<td th:text="${s.message}"></td>
-			<td><a th:href="@{/getStudent/} + ${s.id}">Edit</a></td>
-			<td><a th:href="@{/deleteStudent/} + ${s.id}">Delete</a></td>
+			<td><a th:href="@{/editAccount/} + ${s.id}">Edit</a></td>
+			<td><a th:href="@{/deleteAccount/} + ${s.id}">Delete</a></td>
 		</tr>
 	</table>
 	<br>

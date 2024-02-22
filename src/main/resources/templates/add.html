@@ -6,32 +6,68 @@
 </head>
 <body>
 	<h2>Create Account</h2>
-    <form action="/add" th:object="${account}" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" th:field="*{name}" /><br/>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" th:field="*{email}" /><br/>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" th:field="*{password}" /><br/>
-        
-        <label>Gender:</label><br/>
-        <input type="radio" id="male" th:field="*{gender}" value="Male"/><label for="male">Male</label>
-        <input type="radio" id="female" th:field="*{gender}" value="Female"/><label for="female">Female</label>
-        <input type="radio" id="both" th:field="*{gender}" value="Both"/><label for="both">Both</label><br/>
-        
-        <input type="checkbox" id="subscribe" th:field="*{subscribe}"/><label for="subscribe">Subscribe</label><br/>
-        
-        <label for="country">Country:</label>
-        <select id="country" th:field="*{country}">
-            <option th:each="p : ${countries}" th:value="${p}" th:text="${p}"></option>
-        </select><br/>
-        
-        <label for="message">Message:</label><br/>
-        <textarea id="message" th:field="*{message}"></textarea><br/>
-        
-        <button type="submit">Submit</button>
-    </form>
+	
+	<div th:if="${account.id} != null"> 
+		<form action="/edit" th:object="${account}" method="post">
+			<input type="hidden" th:field="*{id}" /><br/>
+			
+	        <label for="name">Name:</label>
+	        <input type="text" id="name" th:field="*{name}" /><br/>
+	        
+	        <label for="email">Email:</label>
+	        <input type="email" id="email" th:field="*{email}" /><br/>
+	        
+	        <label for="password">Password:</label>
+	        <input type="password" id="password" th:field="*{password}" /><br/>
+	        
+	        <label>Gender:</label><br/>
+	        <input type="radio" id="male" th:field="*{gender}" value="Male"/><label for="male">Male</label>
+	        <input type="radio" id="female" th:field="*{gender}" value="Female"/><label for="female">Female</label>
+	        <input type="radio" id="both" th:field="*{gender}" value="Both"/><label for="both">Both</label><br/>
+	        
+	        <input type="checkbox" id="subscribe" th:field="*{subscribe}"/><label for="subscribe">Subscribe</label><br/>
+	        
+	        <label for="country">Country:</label>
+	        <select id="country" th:field="*{country}">
+	            <option th:each="p : ${countries}" th:value="${p}" th:text="${p}"></option>
+	        </select><br/>
+	        
+	        <label for="message">Message:</label><br/>
+	        <textarea id="message" th:field="*{message}"></textarea><br/>
+	        
+	        <button type="submit">Submit</button>
+	    </form>
+	</div>
+	
+	<div th:if="${account.id} == null"> 
+		<form action="/add" th:object="${account}" method="post">
+	        <label for="name">Name:</label>
+	        <input type="text" id="name" th:field="*{name}" /><br/>
+	        
+	        <label for="email">Email:</label>
+	        <input type="email" id="email" th:field="*{email}" /><br/>
+	        
+	        <label for="password">Password:</label>
+	        <input type="password" id="password" th:field="*{password}" /><br/>
+	        
+	        <label>Gender:</label><br/>
+	        <input type="radio" id="male" th:field="*{gender}" value="Male"/><label for="male">Male</label>
+	        <input type="radio" id="female" th:field="*{gender}" value="Female"/><label for="female">Female</label>
+	        <input type="radio" id="both" th:field="*{gender}" value="Both"/><label for="both">Both</label><br/>
+	        
+	        <input type="checkbox" id="subscribe" th:field="*{subscribe}"/><label for="subscribe">Subscribe</label><br/>
+	        
+	        <label for="country">Country:</label>
+	        <select id="country" th:field="*{country}">
+	            <option th:each="p : ${countries}" th:value="${p}" th:text="${p}"></option>
+	        </select><br/>
+	        
+	        <label for="message">Message:</label><br/>
+	        <textarea id="message" th:field="*{message}"></textarea><br/>
+	        
+	        <button type="submit">Submit</button>
+	    </form>
+	</div>
+	
 </body>
 </html>
